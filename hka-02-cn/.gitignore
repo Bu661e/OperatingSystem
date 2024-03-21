@@ -1,0 +1,15 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+CMakeLists.txt
+cmake-build-debug/
+*.out
+*.test
+test.*
+test
+out.txt
+Notes/
+node_modules/
+yarn.lock
+package.json
+fix.py
+原书勘误.md
