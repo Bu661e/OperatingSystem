@@ -1,6 +1,6 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 
-from __future__ import print_function
+
 import sys
 from optparse import OptionParser
 import random
@@ -119,6 +119,7 @@ if options.solve == False:
     print('OR write down that it is an out-of-bounds address (a segmentation violation). For')
     print('this problem, you should assume a simple virtual address space of a given size.')
     print('')
+
 
 
 

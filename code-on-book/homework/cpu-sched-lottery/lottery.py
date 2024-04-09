@@ -1,6 +1,6 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 
-from __future__ import print_function
+
 import sys
 from optparse import OptionParser
 import random
@@ -126,6 +126,7 @@ if options.solve == True:
         if jobs == 0:
             print('')
             break
+
 
 
 
