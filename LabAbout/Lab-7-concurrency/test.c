@@ -13,21 +13,42 @@ HANDLE mutex;    // 互斥信号量，保护对缓冲区的访问
 
 int insert_position = 0;
 int remove_position = 0;
+int count = 0;
+
+void print()
+{
+	int cnt = count;
+	int idx = remove_position;
+	printf("[ ");
+	while(cnt--)
+	{
+		printf("%d, ", buffer[idx]);
+		idx = (idx + 1) % BUFFER_SIZE;
+	}
+	printf(" ] ");
+
+	printf("\n");
+}
 
 void put (buffer_item value)
 {
 	buffer[insert_position] = value;
 	insert_position = (insert_position + 1) % BUFFER_SIZE;
+	count++;
 
-	printf("producer(%lu) puts %d\n", GetCurrentThreadId(), value);
+	printf("producer(%lu) puts %d  ", GetCurrentThreadId(), value);
+	print();
 }
 
 void get ()
 {
 	int tmp = buffer[remove_position];
 	remove_position = (remove_position + 1) % BUFFER_SIZE;
+	count--;
+	
+	printf("consumer(%lu) gets %d  ", GetCurrentThreadId(), tmp);
+	print();
 
-	printf("consumer(%lu) gets %d\n", GetCurrentThreadId(), tmp);
 	return tmp;
 }
 
